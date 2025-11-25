@@ -1,0 +1,25 @@
+name: Practise Workflow
+on: workflow_dispatch
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Get dependencies
+        run: npm ci
+      - name: test
+        run: echo "npm run test"
+      - name: build
+        run: echo "npm run build"
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploy
+        run: echo "deployed"
+    
