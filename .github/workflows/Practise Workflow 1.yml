@@ -11,7 +11,7 @@ jobs:
         with:
           node-version: 18
       - name: Get dependencies
-        run: npm ci
+        run: echo "npm ci"
       - name: test
         run: echo "npm run test"
       - name: build
